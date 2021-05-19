@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id='app'>
+        <div v-on:click.capture='doParent'>
+            <button v-on:click='doThis'>事件捕获</button>
+        </div>
+    </div>
+    <script>
+        var vm= new Vue({
+            el: '#app',
+            methods: {
+            doParent () {
+                console.log('我是父元素的单击事件')
+            },
+            doThis () {
+                console.log('我是当前元素的单击事件')
+            }
+          }
+        })
+    </script>
+</body>
+</html>
